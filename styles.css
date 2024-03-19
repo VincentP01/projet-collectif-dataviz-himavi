@@ -1,0 +1,20 @@
+#weather-container {
+    text-align: center;
+}
+
+#weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#weather-icon {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    margin-right: 20px; /* Adjust spacing */
+    color: aqua;
+}
+
+#temperature {
+    font-size: 24px; /* Adjust font size */
+}
