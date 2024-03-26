@@ -143,8 +143,9 @@ async function displayCityBackground(city) {
     console.log(rValue)
 
     let backgroundCity = `url(${rValue.urls.raw})`;
-    console.log(backgroundCity)
-    document.getElementById("background").style.backgroundImage = backgroundCity
+    if (backgroundCity) {
+        document.getElementById("background").style.backgroundImage = backgroundCity
+    }
 }
 
 // displayCityBackground()
