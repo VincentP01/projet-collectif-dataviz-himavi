@@ -97,7 +97,7 @@ async function displayCityBackground(city) {
     let rValue = myArray[rand];
     console.log(rValue)
 
-    let backgroundCity = rValue.urls.raw;
+    let backgroundCity = rValue.urls.full;
     // Préchargement de l'image
     await preloadImage(backgroundCity);
     if (backgroundCity) {
