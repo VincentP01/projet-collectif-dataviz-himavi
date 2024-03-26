@@ -7,7 +7,6 @@ const apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 
 // fonction + class
-
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
@@ -15,6 +14,15 @@ const weatherIcon = document.querySelector(".weather-icon");
 //test de verification dans la console
 console.log("hello");
 
+// Fonction de préchargement des images
+function preloadImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(url);
+        img.onerror = reject;
+        img.src = url;
+    });
+}
 
 // fonction asynchrone qui attends la promesse de l'api ???
 async function checkWeather(city) {
@@ -89,8 +97,13 @@ async function displayCityBackground(city) {
     let rValue = myArray[rand];
     console.log(rValue)
 
-    let backgroundCity = `url(${rValue.urls.raw})`;
+    let backgroundCity = rValue.urls.raw;
+    // Préchargement de l'image
+    await preloadImage(backgroundCity);
     if (backgroundCity) {
-        document.getElementById("background").style.backgroundImage = backgroundCity
+        document.getElementById("background").style.backgroundImage = `url(${backgroundCity})`;
     }
 }
+
+// displayCityBackground()
+// checkWeather();
